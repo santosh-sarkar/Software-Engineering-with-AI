@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Oak Table — Menu</title>
+  <meta name="description" content="Explore our menu of fresh, seasonal continental dishes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF6EF',
+            ink: '#2A2418',
+            muted: '#6B6459',
+            line: '#EAE2D4',
+            accent: '#E04F26',
+            'accent-soft': '#FBE8DF',
+            olive: '#5B6B3C',
+            'olive-soft': '#E9EDE1',
+          },
+          boxShadow: {
+            card: '0 1px 2px rgba(60,40,20,.04), 0 8px 24px -8px rgba(60,40,20,.12)',
+            lift: '0 2px 4px rgba(60,40,20,.05), 0 20px 40px -12px rgba(60,40,20,.22)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .card-enter { opacity: 0; transform: translateY(12px); }
+    .card-enter.show { opacity: 1; transform: translateY(0); transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card-enter { opacity: 1; transform: none; }
+      .card-enter.show { transition: none; }
+    }
+  </style>
+</head>
+<body class="bg-cream font-sans text-ink antialiased">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-40 border-b border-line bg-cream/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
+      <a href="#" class="flex items-center gap-2">
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-ink text-cream">
+          <svg class="h-4.5 w-4.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-7 3 14 3-9 2 3h4"/></svg>
+        </span>
+        <span class="font-serif text-lg font-semibold tracking-tight">The Oak Table</span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-medium text-muted md:flex" aria-label="Primary">
+        <a href="#" class="transition-colors duration-150 hover:text-ink">Home</a>
+        <a href="#" class="font-semibold text-ink">Menu</a>
+        <a href="#" class="transition-colors duration-150 hover:text-ink">About</a>
+        <a href="#" class="transition-colors duration-150 hover:text-ink">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 sm:pt-16 sm:pb-10">
+    <div class="flex flex-col gap-6">
+      <div class="max-w-2xl">
+        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-medium uppercase tracking-widest text-olive">
+          <svg class="h-3.5 w-3.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Fresh daily · Seasonal
+        </p>
+        <h1 class="font-serif text-4xl font-medium leading-[1.08] tracking-tight sm:text-5xl">Our Menu</h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+          Honest continental cooking made with seasonal produce and a touch of the wood-fired range. Pick a category below to browse.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Category Tabs ===== -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6" aria-labelledby="menu-cards">
+    <div id="menu-categories" class="sticky top-[65px] z-30 -mx-4 border-y border-line bg-cream/95 px-4 py-3 backdrop-blur sm:top-[73px] sm:-mx-6 sm:px-6">
+      <div class="flex gap-2 overflow-x-auto scrollbar-none pb-0.5" role="tablist" aria-label="Menu categories" id="tablist"></div>
+    </div>
+  </section>
+
+  <!-- ===== Cards Grid ===== -->
+  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+    <div id="card-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+
+    <!-- empty state -->
+    <div id="empty-state" class="hidden py-20 text-center">
+      <p class="font-serif text-2xl text-ink">Nothing here yet</p>
+      <p class="mt-2 text-base text-muted">We don’t have anything in this category right now — check back soon.</p>
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:px-6">
+      <div>
+        <p class="font-serif text-base font-semibold text-ink">The Oak Table</p>
+        <p class="mt-1">12 Harbour Street · Open daily 12pm – 11pm</p>
+      </div>
+      <p class="text-xs text-muted/70">Menu available daily · Dietary notes on request</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
