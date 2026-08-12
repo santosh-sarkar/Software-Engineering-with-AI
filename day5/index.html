@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="./card.webp" alt="card-img" />
+      <form action="">
+        <div class="text-input">
+          <label for="">Card Number</label>
+          <input type="number" id="card-number" />
+        </div>
+
+        <div class="text-input">
+          <label for="">Card Holders</label>
+          <input type="text" id="card-holder" />
+        </div>
+
+        <div class="expiry-container">
+          <div class="">
+            <label for="">Expiration</label>
+            <div>
+              <select name="month" id="month">
+                <option value="">month</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+              </select>
+              <select id="year" name="year">
+                <option value="">Year</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+            </div>
+          </div>
+          <div class="cw-container">
+            <label for="">CVV</label>
+            <input type="number" id="cvv" />
+          </div>
+        </div>
+
+        <input type="submit" class="submit" id="submit" />
+      </form>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Card Number</th>
+          <th>Card Holders</th>
+          <th>Expiration date</th>
+          <th>CVV</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      </tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>
