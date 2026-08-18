@@ -1,0 +1,159 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 20px 200px;
+  font-family: "inter", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header button {
+  border: none;
+  background: transparent;
+  font-weight: 400;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 400;
+}
+
+main {
+  width: 100%;
+  height: 95%;
+  position: relative;
+}
+
+.video-container {
+   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-video,
+.object-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-video {
+  z-index: 0;
+}
+
+.object-video {
+  z-index: 2;
+}
+
+
+.content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content h1 {
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -5px;
+  font-family: "Anton", sans-serif;
+  text-transform: uppercase;
+}
+.left {
+  font-size: 6rem;
+  z-index: 2;
+  position: relative;
+}
+.center {
+  font-size: 10rem;
+}
+.right {
+  text-align: right;
+  font-size: 7rem;
+}
+.future {
+  background: linear-gradient(to right, #34d1a9, #2395ea);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.para {
+  position: absolute;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  bottom: 70px;
+  color: #bbb;
+}
+
+.para button {
+  border: none;
+  background: linear-gradient(to right, #34d1a9, #2395ea);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+main img {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid rgb(91, 91, 232);
+  padding: 3px;
+  outline: 1px solid #ccc;
+  outline-offset: 3px;
+  object-fit: cover;
+}
+
+.img1 {
+  top: 18%;
+  left: 27%;
+  z-index: 1;
+}
+
+.img2 {
+  top: 26%;
+  left: 80%;
+}
+.img3 {
+  top: 70%;
+  left: 70%;
+}
